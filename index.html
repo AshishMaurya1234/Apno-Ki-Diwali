@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#170b2b">
+  <meta name="description" content="Send beautiful personalised festival wishes to your family and friends with Apno Ki Diwali.">
+  <title>Apno Ki Diwali — अपनों के नाम, खुशियों के पैगाम</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="fireworks" aria-hidden="true"></canvas>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Apno Ki Diwali home">
+      <span class="brand-diya">🪔</span>
+      <span><strong>Apno Ki Diwali</strong><small>अपनों के नाम, खुशियों के पैगाम</small></span>
+    </a>
+    <button class="sound-button" id="soundToggle" type="button" aria-label="Toggle sound" title="Toggle sound">🔊</button>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> A FESTIVAL OF TOGETHERNESS <span></span></p>
+        <h1>Khushiyon ki roshni,<br><em>apno ke naam.</em></h1>
+        <p class="hero-hi">खुशियों की रोशनी, अपनों के नाम।</p>
+        <p class="hero-description">Create a little moment of joy. Personalise a beautiful greeting and share it with the people who make every celebration special.</p>
+        <a class="primary-button" href="#create">Create your greeting <span>✦</span></a>
+        <div class="hero-note"><span>✧</span> Made for family, friends & every celebration</div>
+      </div>
+      <div class="hero-art" aria-label="Decorative glowing Diwali lamps">
+        <div class="halo"></div>
+        <div class="mandala">✺</div>
+        <div class="hanging hanging-left">✧</div><div class="hanging hanging-right">✧</div>
+        <div class="hero-diya diya-large"><span class="flame"></span><span class="bowl"></span><span class="diya-glow"></span></div>
+        <div class="hero-diya diya-small left-diya"><span class="flame"></span><span class="bowl"></span></div>
+        <div class="hero-diya diya-small right-diya"><span class="flame"></span><span class="bowl"></span></div>
+        <div class="floating flower flower-one">✿</div><div class="floating flower flower-two">✿</div>
+        <div class="floating star star-one">✦</div><div class="floating star star-two">✧</div>
+      </div>
+    </section>
+
+    <section class="creator-section" id="create">
+      <div class="section-heading">
+        <p class="eyebrow">YOUR THOUGHT, YOUR GREETING</p>
+        <h2>Make it personal <span>♡</span></h2>
+        <p>Choose a celebration, add your loved ones' names, and send a wish from the heart.</p>
+      </div>
+
+      <div class="creator-grid">
+        <form class="form-card" id="greetingForm">
+          <div class="form-topline"><span class="step-number">01</span><span>PERSONALISE YOUR WISH</span></div>
+          <label for="festival">Choose a festival</label>
+          <select id="festival" name="festival">
+            <option value="diwali">🪔 Diwali</option>
+            <option value="holi">🎨 Holi</option>
+            <option value="rakhi">🎀 Raksha Bandhan</option>
+            <option value="eid">🌙 Eid</option>
+            <option value="christmas">🎄 Christmas</option>
+            <option value="newyear">🎉 New Year</option>
+            <option value="generic">✨ A special occasion</option>
+          </select>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="recipient">To whom? <span>*</span></label>
+              <input id="recipient" name="recipient" maxlength="48" placeholder="e.g. Sharma Family" required>
+            </div>
+            <div class="field">
+              <label for="sender">From</label>
+              <input id="sender" name="sender" maxlength="48" placeholder="Your name / family">
+            </div>
+          </div>
+
+          <label for="language">Message language</label>
+          <select id="language" name="language">
+            <option value="both" selected>हिन्दी + English (Bilingual)</option>
+            <option value="hi">हिन्दी</option>
+            <option value="en">English</option>
+          </select>
+
+          <label for="template">Choose your greeting style</label>
+          <div class="template-options" id="templateOptions">
+            <label class="template-choice selected">
+              <input type="radio" name="template" value="warm" checked>
+              <span class="template-icon">💛</span><span><strong>Warm & heartfelt</strong><small>Love, peace and togetherness</small></span>
+            </label>
+            <label class="template-choice">
+              <input type="radio" name="template" value="traditional">
+              <span class="template-icon">🪔</span><span><strong>Traditional blessings</strong><small>Prosperity and good wishes</small></span>
+            </label>
+            <label class="template-choice">
+              <input type="radio" name="template" value="short">
+              <span class="template-icon">✨</span><span><strong>Short & sweet</strong><small>A simple note from the heart</small></span>
+            </label>
+          </div>
+
+          <label for="personalNote">Add a personal note <span class="optional">(optional)</span></label>
+          <textarea id="personalNote" name="personalNote" maxlength="180" rows="2" placeholder="A little message just for them..."></textarea>
+          <button class="primary-button submit-button" type="submit">Create my greeting <span>✦</span></button>
+          <p class="privacy-note"><span>🔒</span> Your names stay in the share link. No account or sign-up needed.</p>
+        </form>
+
+        <aside class="preview-panel" id="previewPanel">
+          <div class="preview-label"><span class="live-dot"></span> LIVE PREVIEW</div>
+          <div class="preview-card" id="previewCard">
+            <div class="preview-ornament top-ornament">✧　✦　✧</div>
+            <div class="preview-diya">🪔</div>
+            <p class="preview-kicker" id="previewFestival">A FESTIVAL OF LIGHTS</p>
+            <h3 id="previewTitle">Happy Diwali!</h3>
+            <h4 id="previewRecipient">Dear Sharma Family</h4>
+            <p class="preview-message" id="previewMessage">May your home glow with happiness, your hearts be filled with peace, and your days shine with endless possibilities.</p>
+            <p class="preview-hindi" id="previewHindi">आपके घर में सुख-समृद्धि और जीवन में खुशियों की रोशनी बनी रहे।</p>
+            <div class="preview-note" id="previewNote"></div>
+            <div class="preview-divider">✦</div>
+            <p class="preview-signoff">With love, <strong id="previewSender">Your well-wisher</strong></p>
+            <div class="preview-ornament bottom-ornament">✧　✦　✧</div>
+          </div>
+          <p class="preview-caption">Your greeting updates as you type.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="how-section">
+      <p class="eyebrow">THREE LITTLE STEPS</p>
+      <h2>Spread the <em>happiness</em></h2>
+      <div class="steps">
+        <article><span>01</span><div class="step-icon">✍️</div><h3>Add names</h3><p>Make your wish personal with family and friends' names.</p></article>
+        <article><span>02</span><div class="step-icon">🎇</div><h3>Choose a style</h3><p>Pick a message that feels just right for your loved ones.</p></article>
+        <article><span>03</span><div class="step-icon">💌</div><h3>Share the love</h3><p>Send your greeting directly through WhatsApp.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-diya">🪔</div>
+    <strong>Apno Ki Diwali</strong>
+    <p>Celebrations feel brighter when shared.</p>
+    <small>Made by Ashu💛.</small>
+  </footer>
+
+  <div class="modal-backdrop" id="greetingModal" aria-hidden="true">
+    <section class="greeting-modal" role="dialog" aria-modal="true" aria-labelledby="finalTitle">
+      <button class="modal-close" id="closeModal" type="button" aria-label="Close">×</button>
+      <div class="modal-sparkle">✦　✧　✦</div>
+      <div class="modal-diya">🪔</div>
+      <p class="eyebrow" id="finalFestival">A FESTIVAL OF LIGHTS</p>
+      <h2 id="finalTitle">Happy Diwali!</h2>
+      <h3 id="finalRecipient">Dear Sharma Family</h3>
+      <p class="final-message" id="finalMessage"></p>
+      <p class="final-hindi" id="finalHindi"></p>
+      <p class="final-note" id="finalNote"></p>
+      <div class="modal-divider">✧ ✦ ✧</div>
+      <p class="final-signoff">With love,<br><strong id="finalSender"></strong></p>
+      <div class="modal-actions">
+        <button class="primary-button" id="whatsappShare" type="button">Share on WhatsApp <span>↗</span></button>
+        <button class="secondary-button" id="copyLink" type="button">Copy greeting link</button>
+      </div>
+      <p class="share-status" id="shareStatus" role="status"></p>
+      <p class="modal-footnote">A little wish can make someone's day. 💛</p>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
